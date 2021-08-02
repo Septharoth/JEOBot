@@ -84,7 +84,7 @@ public class EOSerializer {
 
     public static void flipMSB(List<Byte> array) {
         for (int i=0; i<array.size(); i++) {
-            int value = array.get(i) ^ 0x80;
+            int value = Byte.toUnsignedInt((byte) (array.get(i) ^ 0x80));
             if (value == 128) {
                 value = 0;
             } else if (value == 0) {
