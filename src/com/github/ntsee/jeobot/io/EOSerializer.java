@@ -172,17 +172,17 @@ public class EOSerializer {
         Arrays.fill(bytes, (byte)0xFE);
 
         if (length >= 4 && onumber >= THREE_BYTE_MAX) {
-            bytes[3] = (byte)(number / THREE_BYTE_MAX + 1);
+            bytes[3] = (byte)(Integer.divideUnsigned(number, THREE_BYTE_MAX) + 1);
             number %= THREE_BYTE_MAX;
         }
 
         if (length >= 3 && onumber >= TWO_BYTE_MAX) {
-            bytes[2] = (byte)(number / TWO_BYTE_MAX + 1);
+            bytes[2] = (byte)(Integer.divideUnsigned(number, TWO_BYTE_MAX) + 1);
             number %= TWO_BYTE_MAX;
         }
 
         if (length >= 2 && onumber >= ONE_BYTE_MAX) {
-            bytes[1] = (byte)(number / ONE_BYTE_MAX + 1);
+            bytes[1] = (byte)(Integer.divideUnsigned(number, ONE_BYTE_MAX) + 1);
             number %= ONE_BYTE_MAX;
         }
 
